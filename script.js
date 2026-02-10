@@ -35,45 +35,43 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// PDF Download Functionality
+// Print Version Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const downloadBtn = document.getElementById('download-pdf');
-    
+    const body = document.body;
+
+    const enterPrintMode = () => {
+        downloadBtn.style.display = 'none';
+        body.classList.add('pdf-mode');
+        window.print();
+    };
+
+    const exitPrintMode = () => {
+        body.classList.remove('pdf-mode');
+        downloadBtn.style.display = 'flex';
+    };
+
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function() {
-            // Hide the download button temporarily
-            downloadBtn.style.display = 'none';
-            
-            // Get the element to convert (main content)
-            const element = document.body;
-            const filename = 'Serhii_Nevhasymov_CV.pdf';
-            
-            // Configure PDF options
-            const opt = {
-                margin: [10, 10, 10, 10],
-                filename: filename,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2,
-                    useCORS: true,
-                    logging: false
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait' 
-                }
-            };
-            
-            // Generate and download PDF
-            html2pdf().set(opt).from(element).save().then(function() {
-                // Show the download button again
-                downloadBtn.style.display = 'flex';
-            }).catch(function(error) {
-                console.error('PDF generation error:', error);
-                downloadBtn.style.display = 'flex';
-                alert('Error generating PDF. Please try again or use your browser\'s print function (Ctrl+P / Cmd+P) and save as PDF.');
-            });
+            enterPrintMode();
         });
+    }
+
+    // Ensure we always exit print mode after printing
+    window.addEventListener('afterprint', exitPrintMode);
+
+    if (window.matchMedia) {
+        const mediaQueryList = window.matchMedia('print');
+        const handler = (e) => {
+            if (!e.matches) {
+                exitPrintMode();
+            }
+        };
+
+        if (mediaQueryList.addEventListener) {
+            mediaQueryList.addEventListener('change', handler);
+        } else if (mediaQueryList.addListener) {
+            mediaQueryList.addListener(handler);
+        }
     }
 });
