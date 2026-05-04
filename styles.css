@@ -25,12 +25,33 @@ body {
     position: relative;
 }
 
-/* Download PDF Button */
-.download-btn {
+/* Top action buttons */
+.top-actions {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.top-actions-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Fixed to viewport (direct child of <body>, not inside .top-actions) */
+#book-meet-btn.action-btn.download-btn {
+    position: fixed !important;
+    top: 20px;
+    right: 200px;
+    left: auto;
+    z-index: 1001;
+}
+
+.action-btn {
     background: white;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
@@ -42,28 +63,71 @@ body {
     cursor: pointer;
     font-weight: 600;
     font-size: 0.95rem;
+    font-family: inherit;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+button.action-btn.download-btn,
+a.action-btn.download-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    background: #ffffff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
     box-shadow: var(--shadow-lg);
     transition: all 0.3s ease;
 }
 
-.download-btn:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 20px -5px rgba(37, 99, 235, 0.3);
-}
-
-.download-btn:active {
-    transform: translateY(0);
+a.action-btn.download-btn {
+    text-decoration: none;
 }
 
 .download-btn svg {
     flex-shrink: 0;
 }
 
+.action-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -5px rgba(37, 99, 235, 0.3);
+}
+
+button.action-btn.download-btn:hover,
+button.action-btn.download-btn:focus-visible,
+a.action-btn.download-btn:hover,
+a.action-btn.download-btn:focus-visible {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
 @media (max-width: 768px) {
-    .download-btn {
+    .top-actions {
         display: none;
+    }
+
+    #book-meet-btn {
+        display: none !important;
     }
 }
 
@@ -181,6 +245,11 @@ body {
     flex-shrink: 0;
 }
 
+/* Visible only in print/PDF mode */
+.contact-bookmeet {
+    display: none;
+}
+
 /* Main Content */
 .main-content {
     padding: 40px 0;
@@ -217,6 +286,10 @@ body {
 }
 
 /* Experience Items */
+.experience-title-print-only {
+    display: none;
+}
+
 .experience-item {
     margin-bottom: 30px;
     padding-bottom: 30px;
@@ -257,6 +330,12 @@ body {
 .location {
     color: var(--text-light);
     margin-bottom: 5px;
+}
+
+.domain {
+    color: var(--text-color);
+    margin-bottom: 6px;
+    font-size: 0.95rem;
 }
 
 .company-info,
@@ -463,6 +542,37 @@ body.pdf-mode .main-content {
     padding-top: 12px;
 }
 
+/* Titles and heading-style text: all black in print (Book a Meet link keeps its own color below) */
+body.pdf-mode h1,
+body.pdf-mode h2,
+body.pdf-mode h3,
+body.pdf-mode h4,
+body.pdf-mode h5,
+body.pdf-mode h6 {
+    color: #000000 !important;
+}
+
+body.pdf-mode .section h2 {
+    color: #000000 !important;
+    border-bottom-color: #000000 !important;
+}
+
+body.pdf-mode .profile-info .title,
+body.pdf-mode .profile-info .subtitle {
+    color: #000000 !important;
+}
+
+body.pdf-mode .contacts-block h2 {
+    color: #000000 !important;
+}
+
+body.pdf-mode .company,
+body.pdf-mode .institution,
+body.pdf-mode .experience-description strong,
+body.pdf-mode .language-name {
+    color: #000000 !important;
+}
+
 body.pdf-mode .section {
     border-radius: 0;
     border: none;
@@ -495,7 +605,8 @@ body.pdf-mode .profile-photo {
 }
 
 body.pdf-mode .nav-links,
-body.pdf-mode .download-btn {
+body.pdf-mode .top-actions,
+body.pdf-mode #book-meet-btn {
     display: none !important;
 }
 
@@ -513,6 +624,22 @@ body.pdf-mode .header {
 
 body.pdf-mode .experience-summary {
     border-left: 0;
+}
+
+/* Move "Experience" section title into first block for print only */
+body.pdf-mode #experience > h2 {
+    display: none !important;
+}
+
+body.pdf-mode .experience-title-print-only {
+    display: block !important;
+    font-size: 2rem;
+    margin: 0 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #000000;
+    color: #000000;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 body.pdf-mode .recommendation-item {
@@ -538,10 +665,17 @@ body.pdf-mode .contact-link {
     transform: none !important;
 }
 
+body.pdf-mode .contact-bookmeet {
+    display: inline-flex;
+}
+
 body.pdf-mode .contact-link + .contact-link::before {
-    content: "/";
-    margin: 0 8px;
-    opacity: 0.7;
+    content: none;
+    margin: 0;
+}
+
+body.pdf-mode .contact-bookmeet {
+    color: #2563eb !important;
 }
 
 /* Try to keep each experience block on its own page in print */
@@ -583,6 +717,7 @@ body.pdf-mode .contact-link + .contact-link::before {
     .section {
         padding: 20px;
     }
+
 }
 
 @media (max-width: 480px) {

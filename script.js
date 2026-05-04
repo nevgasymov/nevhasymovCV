@@ -1,5 +1,5 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scroll for in-page nav only (avoid hijacking external/booking links)
+document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -35,7 +35,8 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Print Version Functionality
+// Print Version (Book a Meet uses a normal <a href> in HTML — works without JS, no popup blocking)
+
 document.addEventListener('DOMContentLoaded', function() {
     const downloadBtn = document.getElementById('download-pdf');
     const body = document.body;

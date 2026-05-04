@@ -4,8 +4,8 @@
     <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Serhii Nevhasymov - Senior Frontend Developer with 15+ years of experience in React.js, Angular, and .NET Core. Based in Lviv, Ukraine.">
-    <meta name="keywords" content="Serhii Nevhasymov, Frontend Developer, React.js, Angular, .NET Core, Web Developer, Ukraine, Lviv, Senior Developer">
+    <meta name="description" content="Serhii Nevhasymov - Senior Frontend Developer with 15+ years of experience in React.js, Angular, and Vue.js. Based in Lviv, Ukraine.">
+    <meta name="keywords" content="Serhii Nevhasymov, Frontend Developer, React.js, Angular, Vue.js, Web Developer, Ukraine, Lviv, Senior Developer">
     <meta name="author" content="Serhii Nevhasymov">
     <meta name="robots" content="index, follow">
     
@@ -13,14 +13,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nevhasymov-cv.com.ua/">
     <meta property="og:title" content="Serhii Nevhasymov - Senior Frontend Developer">
-    <meta property="og:description" content="Senior Frontend Developer with 15+ years of experience in React.js, Angular, and .NET Core">
+    <meta property="og:description" content="Senior Frontend Developer with 15+ years of experience in React.js, Angular, and Vue.js">
     <meta property="og:image" content="https://nevhasymov-cv.com.ua/assets/profile-photo.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nevhasymov-cv.com.ua/">
     <meta property="twitter:title" content="Serhii Nevhasymov - Senior Frontend Developer">
-    <meta property="twitter:description" content="Senior Frontend Developer with 15+ years of experience in React.js, Angular, and .NET Core">
+    <meta property="twitter:description" content="Senior Frontend Developer with 15+ years of experience in React.js, Angular, and Vue.js">
     <meta property="twitter:image" content="https://nevhasymov-cv.com.ua/assets/profile-photo.png">
     
     <!-- Canonical URL -->
@@ -48,26 +48,43 @@
       "sameAs": [
         "https://www.linkedin.com/in/serhii-nevhasymov-071b4176/"
       ],
-      "knowsAbout": ["React.js", "Angular", ".NET Core", "Frontend Development", "Web Development", "UI/UX Design"]
+      "knowsAbout": ["React.js", "Angular", "Vue.js", "Frontend Development", "Web Development", "UI/UX Design"]
     }
     </script>
     
     <title>Serhii Nevhasymov - Senior Frontend Developer | CV</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260205">
     <!-- html2pdf.js library for PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <!-- Print Version Button -->
-    <button id="download-pdf" class="download-btn" aria-label="Switch to print version" title="Switch to print version">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 3 18 3 18 9"></polyline>
-            <rect x="6" y="13" width="12" height="8"></rect>
-            <line x1="6" y1="17" x2="18" y2="17"></line>
-            <line x1="8" y1="7" x2="16" y2="7"></line>
+    <!-- Outside .top-actions so position:fixed anchors reliably to the viewport -->
+    <!-- Uses a real link so navigation works without JS and avoids popup blockers. Replace href with your public Google Appointment schedule URL when ready. -->
+    <a id="book-meet-btn" class="action-btn download-btn" href="https://calendar.google.com/calendar/u/0/r?pli=1" target="_blank" rel="noopener noreferrer" aria-label="Book a meet on Google Calendar" title="Book a meet — Mon–Fri, 12:00–16:00">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <path d="M9 16l2 2 4-4"></path>
         </svg>
-        <span>Print version</span>
-    </button>
+        <span>Book a Meet</span>
+    </a>
+
+    <div class="top-actions">
+        <div class="top-actions-row">
+        <!-- Print Version Button -->
+        <button type="button" id="download-pdf" class="action-btn download-btn" aria-label="Switch to print version" title="Switch to print version">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 3 18 3 18 9"></polyline>
+                <rect x="6" y="13" width="12" height="8"></rect>
+                <line x1="6" y1="17" x2="18" y2="17"></line>
+                <line x1="8" y1="7" x2="16" y2="7"></line>
+            </svg>
+            <span>Print version</span>
+        </button>
+        </div>
+    </div>
 
     <header class="header">
         <div class="container">
@@ -114,6 +131,16 @@
                         </svg>
                         +380 63 449 6670
                     </a>
+                    <a href="https://calendar.google.com/calendar/u/0/r?pli=1" target="_blank" rel="noopener noreferrer" class="contact-link contact-bookmeet">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <path d="M9 16l2 2 4-4"></path>
+                        </svg>
+                        Book a Meet
+                    </a>
                     <a href="https://www.instagram.com/nevgasymus/" target="_blank" rel="noopener noreferrer" class="contact-link contact-instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -138,8 +165,25 @@
             <!-- About Section -->
             <section id="about" class="section">
                 <h2>About</h2>
-                <p>With over 15 years of front-end development experience, devspiration benefits from my expertise in React.js and Angular, complemented by a solid grounding in .NET Core from my previous role at Symphony Solutions. My core competencies revolve around creating seamless user experiences and robust backend systems, aligning with the mission of delivering innovative software solutions. As part of the team at devspiration, we are dedicated to advancing the field of economic cybernetics through strategic development, always aiming to contribute diverse perspectives and drive technological growth. In this journey, my multilingual skills in English and Ukrainian enhance our collaborative efforts and client relations.</p>
+                <p>With over 15 years of front-end development experience, devspiration benefits from my expertise in React.js, Angular, and Vue.js. My core competencies revolve around creating seamless user experiences and robust, scalable solutions, aligning with the mission of delivering innovative software products. As part of the team at devspiration, we are dedicated to advancing the field of economic cybernetics through strategic development, always aiming to contribute diverse perspectives and drive technological growth. In this journey, my multilingual skills in English and Ukrainian enhance our collaborative efforts and client relations.</p>
                 <p class="experience-summary"><strong>Total Experience:</strong> 15 years and 7 months</p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Micro frontend architecture</span>
+                    <span class="skill-tag">UI Design</span>
+                    <span class="skill-tag">UX Development</span>
+                    <span class="skill-tag">Cursor</span>
+                </div>
             </section>
 
             <!-- Experience Section -->
@@ -147,13 +191,14 @@
                 <h2>Experience</h2>
                 
                 <div class="experience-item">
+                    <p class="experience-title-print-only">Experience</p>
                     <div class="experience-header">
                         <h3>Senior Frontend Developer</h3>
                         <span class="company">devspiration</span>
                         <span class="period">Jan 2020 - Present • 5 years and 11 months</span>
                     </div>
                     <p class="location">Lviv, Ukraine</p>
-                    <p class="company-info">Company: 51-200 employees • Founded 2008 • Privately Held • IT Services and IT Consulting</p>
+                    <p class="domain"><strong>Domain:</strong> FinTech</p>
                     <div class="experience-description">
                         <p>Leading frontend development initiatives while expanding backend capabilities in a full-stack capacity. Architected and developed scalable web applications for clients in the economic cybernetics domain, focusing on data visualization and complex analytical dashboards. Actively leverage AI-assisted tools such as Cursor to accelerate delivery and maintain high code quality.</p>
                         <p><strong>Key Responsibilities:</strong></p>
@@ -161,7 +206,7 @@
                             <li>Design and implement responsive, high-performance React.js and Angular applications</li>
                             <li>Lead technical interviews for frontend candidates, assessing practical skills and cultural fit</li>
                             <li>Mentor junior developers through 1:1 sessions, pair programming, and structured growth plans</li>
-                            <li>Develop RESTful APIs and microservices using .NET Core</li>
+                            <li>Design and integrate scalable RESTful APIs with frontend applications</li>
                             <li>Collaborate with cross-functional teams to deliver end-to-end solutions</li>
                             <li>Optimize application performance and ensure scalability</li>
                             <li>Implement CI/CD pipelines and DevOps best practices</li>
@@ -170,9 +215,7 @@
                     <div class="technologies">
                         <span class="tech-tag">React.js</span>
                         <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">.NET Core</span>
                         <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">C#</span>
                         <span class="tech-tag">RESTful APIs</span>
                         <span class="tech-tag">Entity Framework</span>
                         <span class="tech-tag">SQL Server</span>
@@ -189,14 +232,14 @@
                         <span class="period">Oct 2018 - Jan 2020 • 1 year and 3 months</span>
                     </div>
                     <p class="location">Lviv Region, Ukraine</p>
-                    <p class="company-info">Company: 501-1000 employees • Founded 2008 • Privately Held • IT Services and IT Consulting</p>
+                    <p class="domain"><strong>Domain:</strong> Sports betting</p>
                     <p class="department">Department: Engineering and Technical • Level: Senior</p>
                     <div class="experience-description">
                         <p>Developed and maintained complex enterprise-level frontend applications for international clients. Worked on multiple projects simultaneously, delivering high-quality solutions using modern JavaScript frameworks and best practices.</p>
                         <p><strong>Key Responsibilities:</strong></p>
                         <ul>
                             <li>Built scalable single-page applications using React.js and Angular</li>
-                            <li>Integrated frontend applications with .NET Core backend services</li>
+                            <li>Integrated frontend applications with scalable backend services</li>
                             <li>Implemented state management solutions (Redux, NgRx)</li>
                             <li>Created reusable component libraries and design systems</li>
                             <li>Collaborated with UX/UI designers to implement pixel-perfect designs</li>
@@ -206,7 +249,6 @@
                     <div class="technologies">
                         <span class="tech-tag">React.js</span>
                         <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">.NET Core</span>
                         <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">Redux</span>
                         <span class="tech-tag">NgRx</span>
@@ -224,7 +266,7 @@
                         <span class="period">Nov 2017 - Oct 2018 • 11 months</span>
                     </div>
                     <p class="location">Lviv Region, Ukraine</p>
-                    <p class="company-info">Company: 51-200 employees • Founded 2013 • Privately Held • IT Services and IT Consulting</p>
+                    <p class="domain"><strong>Domain:</strong> FinTech</p>
                     <p class="department">Department: Engineering and Technical • Level: Senior</p>
                     <div class="experience-description">
                         <p>Led frontend development for multiple client projects, focusing on modern web applications and e-commerce platforms. Transformed legacy applications into modern, maintainable codebases using contemporary frameworks and methodologies.</p>
@@ -259,7 +301,7 @@
                         <span class="period">Feb 2016 - Nov 2017 • 1 year and 9 months</span>
                     </div>
                     <p class="location">Lviv</p>
-                    <p class="company-info">Company: 11-50 employees • Founded 2015 • Privately Held • IT Services and IT Consulting</p>
+                    <p class="domain"><strong>Domain:</strong> E-commerce</p>
                     <div class="experience-description">
                         <p>Created visually appealing and user-friendly interfaces for various web projects, from landing pages to complex web applications. Combined design skills with frontend development expertise to deliver complete UI solutions.</p>
                         <p><strong>Key Responsibilities:</strong></p>
@@ -293,7 +335,7 @@
                         <span class="period">Jul 2015 - Jan 2016 • 6 months</span>
                     </div>
                     <p class="location">Lviv</p>
-                    <p class="company-info">Company: 51-200 employees • Founded 1984 • Privately Held • Software Development</p>
+                    <p class="domain"><strong>Domain:</strong> Healthcare</p>
                     <p class="department">Front-end / Web-design</p>
                     <div class="experience-description">
                         <p>Developed frontend interfaces for software products and web applications. Focused on creating intuitive user experiences and maintaining design consistency across multiple projects.</p>
@@ -327,7 +369,7 @@
                         <span class="period">Mar 2015 - Jun 2015 • 3 months</span>
                     </div>
                     <p class="location">Kharkiv, Ukraine</p>
-                    <p class="company-info">Company: 1-10 employees • Privately Held • Real Estate</p>
+                    <p class="domain"><strong>Domain:</strong> E-commerce</p>
                     <p class="department">Department: Engineering and Technical • Level: Specialist</p>
                     <div class="experience-description">
                         <p>Developed frontend solutions for real estate web platform, focusing on property listings, search functionality, and user interface improvements.</p>
@@ -359,7 +401,7 @@
                         <span class="period">Apr 2010 - Mar 2015 • 4 years and 11 months</span>
                     </div>
                     <p class="location">Kharkiv, Ukraine</p>
-                    <p class="company-info">Company: 201-500 employees • Partnership • IT Services and IT Consulting</p>
+                    <p class="domain"><strong>Domain:</strong> IT outsourcing &amp; web services</p>
                     <div class="experience-description">
                         <p>Specialized in creating semantic, cross-browser compatible HTML/CSS markup for numerous client projects. Developed expertise in responsive design and web standards, working on diverse projects from corporate websites to e-commerce platforms.</p>
                         <p><strong>Key Responsibilities:</strong></p>
@@ -395,28 +437,6 @@
                     <h3>Master's degree, Economic cybernetics and security</h3>
                     <p class="institution">Kharkov National University of Building and Architecture</p>
                     <p class="period">2005 - 2010 • 5 years</p>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills" class="section">
-                <h2>Skills</h2>
-                <div class="skills-list">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Angular</span>
-                    <span class="skill-tag">.NET Core</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">UI Design</span>
-                    <span class="skill-tag">UX Development</span>
-                    <span class="skill-tag">Frontend Development</span>
-                    <span class="skill-tag">Backend Development</span>
-                    <span class="skill-tag">Software Development</span>
-                    <span class="skill-tag">Client Relations</span>
-                    <span class="skill-tag">Multilingual</span>
-                    <span class="skill-tag">Cursor</span>
                 </div>
             </section>
 
