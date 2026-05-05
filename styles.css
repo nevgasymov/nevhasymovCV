@@ -462,6 +462,36 @@ a.action-btn.download-btn:focus-visible {
 }
 
 /* Recommendations */
+.section-title-with-icon {
+    gap: 10px;
+    position: relative;
+}
+
+.section-title-with-icon h2 {
+    margin-bottom: 20px;
+}
+
+.section-title-linkedin {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.section-title-linkedin:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
 .recommendation-item {
     margin-bottom: 25px;
     padding: 20px;
@@ -474,6 +504,13 @@ a.action-btn.download-btn:focus-visible {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+}
+
+.recommendation-position {
+    margin-bottom: 10px;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .recommendation-text {
